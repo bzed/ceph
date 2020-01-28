@@ -113,7 +113,7 @@ public:
                                       strlen(header->filename)));
   }
 
-  size_t get_filesize() const {
+  uint64_t get_filesize() const {
     /* The string_ref is pretty suitable here because tar encodes its
      * metadata in ASCII. */
     const boost::string_ref raw(header->filesize, sizeof(header->filesize));
@@ -125,7 +125,7 @@ public:
       pad_ends_at == boost::string_ref::npos ? boost::string_ref::npos
                                              : pos2len(pad_ends_at));
 
-    size_t sum = 0, mul = 1;
+    uint64_t sum = 0, mul = 1;
     for (const char c : boost::adaptors::reverse(trimmed)) {
       sum += (c - '0') * mul;
       mul *= 8;

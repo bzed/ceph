@@ -7119,13 +7119,13 @@ bool RGWBulkUploadOp::handle_file_verify_permission(RGWBucketInfo& binfo,
 }
 
 int RGWBulkUploadOp::handle_file(const boost::string_ref path,
-                                 const size_t size,
+                                 const uint64_t size,
                                  AlignedStreamGetter& body)
 {
 
   ldpp_dout(this, 20) << "got file=" << path << ", size=" << size << dendl;
 
-  if (size > static_cast<size_t>(s->cct->_conf->rgw_max_put_size)) {
+  if (size > static_cast<uint64_t>(s->cct->_conf->rgw_max_put_size)) {
     op_ret = -ERR_TOO_LARGE;
     return op_ret;
   }

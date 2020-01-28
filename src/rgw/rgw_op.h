@@ -629,7 +629,7 @@ protected:
 				     std::map<std::string, ceph::bufferlist>& battrs,
                                      ACLOwner& bucket_owner /* out */);
   int handle_file(boost::string_ref path,
-                  size_t size,
+                  uint64_t size,
                   AlignedStreamGetter& body);
 
   int handle_dir_verify_permission();
@@ -698,13 +698,13 @@ public:
 class RGWBulkUploadOp::AlignedStreamGetter
   : public RGWBulkUploadOp::DecoratedStreamGetter {
   size_t position;
-  size_t length;
+  uint64_t length;
   size_t alignment;
 
 public:
   template <typename U>
   AlignedStreamGetter(const size_t position,
-                      const size_t length,
+                      const uint64_t length,
                       const size_t alignment,
                       U&& decoratee)
     : DecoratedStreamGetter(std::forward<U>(decoratee)),

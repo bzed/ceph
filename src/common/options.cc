@@ -5365,7 +5365,7 @@ std::vector<Option> get_rgw_options() {
     .set_long_description("The window size may be dynamically adjusted, but will not surpass this value.")
     .add_see_also({"rgw_put_obj_min_window_size", "rgw_max_chunk_size"}),
 
-    Option("rgw_max_put_size", Option::TYPE_SIZE, Option::LEVEL_ADVANCED)
+    Option("rgw_max_put_size", Option::TYPE_UINT, Option::LEVEL_ADVANCED)
     .set_default(5_G)
     .set_description("Max size (in bytes) of regular (non multi-part) object upload.")
     .set_long_description(
