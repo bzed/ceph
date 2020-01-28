@@ -1877,7 +1877,7 @@ std::vector<Option> get_global_options() {
     .add_service("mon")
     .set_description("issue MON_DISK_LOW health warning when mon available space below this percentage"),
 
-    Option("mon_data_size_warn", Option::TYPE_SIZE, Option::LEVEL_ADVANCED)
+    Option("mon_data_size_warn", Option::TYPE_UINT, Option::LEVEL_ADVANCED)
     .set_default(15_G)
     .add_service("mon")
     .set_description("issue MON_DISK_BIG health warning when mon database is above this size"),
