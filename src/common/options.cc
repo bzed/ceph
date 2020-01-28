@@ -4085,7 +4085,7 @@ std::vector<Option> get_global_options() {
     .set_flag(Option::FLAG_CREATE)
     .set_description("Path to block device/file"),
 
-    Option("bluestore_block_size", Option::TYPE_SIZE, Option::LEVEL_DEV)
+    Option("bluestore_block_size", Option::TYPE_UINT, Option::LEVEL_DEV)
     .set_default(100_G)
     .set_flag(Option::FLAG_CREATE)
     .set_description("Size of file to create for backing bluestore"),
