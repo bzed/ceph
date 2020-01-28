@@ -5966,7 +5966,7 @@ int64_t BlueStore::_get_bluefs_size_delta(uint64_t bluefs_free, uint64_t bluefs_
     reclaim = 0;
   }
   uint64_t max_free =
-    cct->_conf.get_val<Option::size_t>("bluestore_bluefs_max_free");
+    cct->_conf.get_val<uint64_t>("bluestore_bluefs_max_free");
   if (bluefs_free > max_free) {
     dout(10) << __func__ << " bluefs_free " << bluefs_free
              << " > max " << max_free
