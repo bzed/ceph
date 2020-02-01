@@ -216,7 +216,9 @@ template long strict_iec_cast<long>(std::string_view str, std::string *err);
 template long long strict_iec_cast<long long>(std::string_view str, std::string *err);
 template uint64_t strict_iec_cast<uint64_t>(std::string_view str, std::string *err);
 template uint32_t strict_iec_cast<uint32_t>(std::string_view str, std::string *err);
+#ifdef HAVE_SIZE_T_AND_UINT64_T
 template size_t strict_iec_cast<size_t>(std::string_view str, std::string *err);
+#endif
 
 uint64_t strict_iecstrtoll(std::string_view str, std::string *err)
 {
@@ -239,7 +241,9 @@ template long strict_iec_cast<long>(const char *str, std::string *err);
 template long long strict_iec_cast<long long>(const char *str, std::string *err);
 template uint64_t strict_iec_cast<uint64_t>(const char *str, std::string *err);
 template uint32_t strict_iec_cast<uint32_t>(const char *str, std::string *err);
+#ifdef HAVE_SIZE_T_AND_UINT64_T
 template size_t strict_iec_cast<size_t>(const char *str, std::string *err);
+#endif
 
 template<typename T>
 T strict_si_cast(std::string_view str, std::string *err)
